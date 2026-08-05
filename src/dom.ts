@@ -13,3 +13,7 @@ export function useWindowSize() {
   onUnmounted(() => window.removeEventListener('resize', update));
   return { width, height };
 }
+export function useEventListener(target: EventTarget | null | undefined, event: string, listener: EventListenerOrEventListenerObject) {
+  onMounted(() => target?.addEventListener(event, listener));
+  onUnmounted(() => target?.removeEventListener(event, listener));
+}
