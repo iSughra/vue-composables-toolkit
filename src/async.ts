@@ -17,3 +17,10 @@ export function useFetch(url: string) {
   fetch(url).then(res => res.json()).then(json => (data.value = json)).catch(err => (error.value = err));
   return { data, error };
 }
+export function useDebounceFn<T extends (...args: any[]) => any>(fn: T, delay: number) {
+  let timer: any = null;
+  return (...args: Parameters<T>) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
