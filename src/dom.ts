@@ -27,3 +27,10 @@ export function useIntersectionObserver(target: HTMLElement | null, callback: In
   });
   onUnmounted(() => observer?.disconnect());
 }
+export function useOnClickOutside(target: HTMLElement | null, handler: (e: MouseEvent) => void) {
+  const listener = (event: MouseEvent) => {
+    if (!target || target.contains(event.target as Node)) return;
+    handler(event);
+  };
+  useEventListener(window, 'mousedown', listener as EventListener);
+}
