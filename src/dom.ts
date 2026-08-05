@@ -17,3 +17,13 @@ export function useEventListener(target: EventTarget | null | undefined, event: 
   onMounted(() => target?.addEventListener(event, listener));
   onUnmounted(() => target?.removeEventListener(event, listener));
 }
+export function useIntersectionObserver(target: HTMLElement | null, callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
+  let observer: IntersectionObserver | null = null;
+  onMounted(() => {
+    if (target) {
+      observer = new IntersectionObserver(callback, options);
+      observer.observe(target);
+    }
+  });
+  onUnmounted(() => observer?.disconnect());
+}
