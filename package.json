@@ -1,0 +1,19 @@
+{
+  "name": "@isughra/vue-composables-toolkit",
+  "version": "0.1.0",
+  "description": "A robust collection of Vue 3 composition API utilities and helpers",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["vue", "composables", "composition-api", "toolkit"],
+  "author": "iSughra",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
