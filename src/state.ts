@@ -9,3 +9,8 @@ export function useSessionStorage(key: string, initialValue: string) {
   watch(data, (newVal) => sessionStorage.setItem(key, newVal));
   return data;
 }
+export function useToggle(initialValue = false) {
+  const value = ref(initialValue);
+  const toggle = () => (value.value = !value.value);
+  return [value, toggle] as const;
+}
