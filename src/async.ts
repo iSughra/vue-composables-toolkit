@@ -11,3 +11,9 @@ export function useAsyncState<T>(promise: Promise<T>, initialState: T) {
   });
   return { state, isReady, isLoading };
 }
+export function useFetch(url: string) {
+  const data = ref(null);
+  const error = ref(null);
+  fetch(url).then(res => res.json()).then(json => (data.value = json)).catch(err => (error.value = err));
+  return { data, error };
+}
