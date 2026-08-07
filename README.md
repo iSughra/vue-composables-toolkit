@@ -26,3 +26,10 @@ const { width, height } = useWindowSize();
 ## License
 
 MIT
+
+## Quick Start
+
+```bash
+npm install vue-composables-toolkit
+```
+
